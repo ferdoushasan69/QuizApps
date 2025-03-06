@@ -108,11 +108,10 @@ fun QuizScreen(
             category = category
         )
 
-        Spacer(Modifier.height(16.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(100.dp)
+                .height(80.dp)
                 .padding(top = 40.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -226,8 +225,8 @@ fun ButtonBox(text : String,color : Color?=null , onClick : ()->Unit, fraction :
         onClick()
     }, modifier = Modifier
         .fillMaxWidth(fraction)
-        .height(64.dp)) {
-        Text(text)
+        .height(54.dp)) {
+        Text(text, fontSize = 16.sp)
     }
 }
 @Composable
