@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,36 +37,40 @@ fun ResultScreen(totalScore: Int, quizSize: Int,backHome:()->Unit) {
             .background(bgColor)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.SpaceEvenly
     ) {
         Image(
             painterResource(R.drawable.trophy),
             contentDescription = null,
             modifier = Modifier.size(300.dp)
         )
-        Text(
-            "Congratulations",
-            fontSize = 33.sp,
-            color = MaterialTheme.colorScheme.onPrimary,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(Modifier.height(16.dp))
-        Text(
-            "Total Score : $totalScore out of $quizSize",
-            fontSize = 22.sp,
-            color = MaterialTheme.colorScheme.onPrimary,
-            fontWeight = FontWeight.Bold
-        )
-        Spacer(Modifier.height(16.dp))
+Column {
+    Text(
+        "Congratulations",
+        fontSize = 33.sp,
+        color = MaterialTheme.colorScheme.onPrimary,
+        fontWeight = FontWeight.Bold
+    )
+    Spacer(Modifier.height(16.dp))
+    Text(
+        "Total Score : $totalScore out of $quizSize",
+        fontSize = 22.sp,
+        color = MaterialTheme.colorScheme.onPrimary,
+        fontWeight = FontWeight.Bold
+    )
+}
+        Spacer(Modifier.height(3.dp))
 
-        ButtonBox(
-            text = "Back to Home",
-            color = optionSelectedColor,
-            onClick = {
-                backHome()
-            },
-            fraction = 1f,
-        )
+      Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.BottomCenter){
+          ButtonBox(
+              text = "Back to Home",
+              color = optionSelectedColor,
+              onClick = {
+                  backHome()
+              },
+              fraction = 1f,
+          )
+      }
     }
 
 }
